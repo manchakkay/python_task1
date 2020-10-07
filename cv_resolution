@@ -6,9 +6,8 @@ input = open("figure6.txt")
 lines = input.readlines()
 
 real_size = float(lines[0])
-min_i = 1000000000
-max_i = -1
-
+min_i = float('inf')
+max_i = float('-inf')
 
 for i, line in enumerate(lines):
     arr = np.array(line.strip().split(" "))
@@ -20,5 +19,7 @@ for i, line in enumerate(lines):
             if max_i < i:
                 max_i = i
 
-
-print(real_size / (max_i - min_i + 1))
+if (min_i != float('inf')):
+    print(real_size / (max_i - min_i + 1))
+else:
+    print("0")
